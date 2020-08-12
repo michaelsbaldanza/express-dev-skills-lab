@@ -1,0 +1,15 @@
+<body>
+    <h1>Skills as of <%= time %></h1>
+
+    <ul>
+      <% skills.forEach(function(t) { %>
+        <li>
+          <%= t.skill %>
+            - 
+          <%= t.proficiency ? 'high' : 'low' %>
+        </li>
+      <% }); %>
+    </ul>
+    <a href="/skills/new">Add Skill</a>
+    
+  </body>
