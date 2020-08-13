@@ -1,4 +1,4 @@
-const devSkills = [
+const skills = [
     {id: 1, skill: 'HTML'},
     {id: 2, skill: 'CSS'},
     {id: 3, skill: 'JavaScript'},
@@ -8,7 +8,7 @@ const devSkills = [
 ];
 
 function getAll() {
-    return devSkills;
+    return skills;
 };
 
 function create(skill) {
@@ -17,7 +17,13 @@ function create(skill) {
     devSkills.push(skill);
 };  
 
+function deleteOne(id) {
+    const idx = skills.findIndex(skill => skill.id === parseInt(id));
+    skills.splice(idx, 1);
+};
+
 module.exports = {
-    getAll,
-    create
+    getAll: getAll,
+    create: create,
+    deleteOne: deleteOne
 };

@@ -4,6 +4,9 @@
     <ul>
       <% skills.forEach(function(t) { %>
         <li>
+          <form action="/todos/<%= t.id %>?_method=DELETE" class="delete-form" method="POST">
+            <button type="submit">X</button>
+          </form>
           <%= t.skill %>
             - 
           <%= t.proficiency ? 'high' : 'low' %>
