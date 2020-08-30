@@ -7,6 +7,13 @@ function index(req, res) {
     });
 };
 
+function show(req, res) {
+  res.render('skills/show.ejs', {
+    skill: Skill.getOne(req.params.id),
+    skillNum: Skill.getAll().findIndex(skill => skill.id === parseInt(req.params.id) + 1)
+  });
+};
+
 function newSkill(req, res) {
   res.render('skills/new');
 };
@@ -20,12 +27,13 @@ function create(req, res) {
 
 function deleteSkill(req, res) {
   Skill.deleteOne(req.params.id);
-  res.redirect('/todos');
+  res.redirect('/skills');
 };
 
 module.exports = {
     index: index,
     new: newSkill,
     create,
-    delete: deleteSkill
+    delete: deleteSkill,
+    show: show
 };

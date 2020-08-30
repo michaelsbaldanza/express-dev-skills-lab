@@ -14,7 +14,7 @@ function getAll() {
 function create(skill) {
     skill.id = Date.now() % 1000000;
     skill.done = false;
-    devSkills.push(skill);
+    skills.push(skill);
 };  
 
 function deleteOne(id) {
